@@ -1,5 +1,8 @@
 package nusiss.csf.server.model;
 
+import java.io.Serializable;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.UUID;
 
 /*
@@ -8,7 +11,7 @@ import java.util.UUID;
  * This byte array can then be stored in a BLOB field in the SQL database.
  */
 
-public class Post {
+public class Post implements Serializable {
     
     private String postId;
     private String comments;
@@ -39,6 +42,17 @@ public class Post {
             .substring(0, 8); // Create unique UUID when a picture is uploaded
         this.comments = comments;
         this.picture = picture;
+    }
+
+    public Post() {
+    }
+    
+    public static Post populate(ResultSet rs) throws SQLException {
+        final Post p = new Post();
+        p.setPostId(rs.getString("post_id"));
+        p.setComments(rs.getString("comments"));
+        p.setPicture(rs.getBytes("picture"));
+        return p;
     }
     
     @Override

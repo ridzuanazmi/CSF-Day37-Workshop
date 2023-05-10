@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.StringTokenizer;
 import java.util.UUID;
 
@@ -57,6 +58,10 @@ public class PostService {
             response = joInsertPostResult.toString();
             return response;
         }
+    }
+
+    public Optional<Post> getPostsById(String postId) {
+        return this.postRepo.getPostsByIdSQL(postId);
     }
 
     // Upload file into S3
