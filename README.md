@@ -9,4 +9,4 @@ this project uses ng build and just run the server part of the project
 
 # s3 branch
 this project uses the ng build, no CORS, and added an upload to DigitalOcean feature
-using s3 
+using s3. Added GetMapping to retrieve image from MySQL.
