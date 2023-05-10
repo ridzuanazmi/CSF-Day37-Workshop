@@ -12,7 +12,7 @@ export class UploadService {
   postPictureWithComments(formData: FormData): Promise<any> {
 
     return firstValueFrom(
-      this.http.post('http://localhost:8080/api/post', formData)
+      this.http.post(`/api/post`, formData)
     );
 
   }
