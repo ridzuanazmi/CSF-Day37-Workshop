@@ -8,3 +8,7 @@ create table posts(
     picture			mediumblob,
     constraint		posts_pk primary key (post_id)
 );
+
+insert into posts (post_id, comments, picture) values (?, ?, ?);
+
+select * from posts;

@@ -32,8 +32,9 @@ public class PostController {
         try {
 
             Post post = new Post(comments, picture.getBytes());
-            String response = postSrvc.postPictureWithComments(post);
-
+            String key = postSrvc.uploadS3(picture, comments);
+            String response = postSrvc.postPictureWithCommentsSQL(post);
+            System.out.printf("\n>>>S3 key: %s\n", key);
             return ResponseEntity.status(201)
                 .body(response);
 

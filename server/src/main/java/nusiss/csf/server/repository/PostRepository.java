@@ -15,8 +15,10 @@ public class PostRepository {
     private static final String SQL_INSERT_POSTS = "insert into posts (post_id, comments, picture) values (?, ?, ?)";
 
     // Returns true if successful ( >0 )
-    public boolean postPictureWithComments(Post post) {
+    public boolean postPictureWithCommentsSQL(Post post) {
         return jdbcTemplate.update(SQL_INSERT_POSTS, 
             post.getPostId(), post.getComments(), post.getPicture()) > 0;
-    } 
+    }
+    
+    
 }
